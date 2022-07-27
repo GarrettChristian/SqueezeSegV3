@@ -66,16 +66,16 @@ if __name__ == '__main__':
 
   # create log folder
   try:
-    if os.path.isdir(FLAGS.log):
-      shutil.rmtree(FLAGS.log)
-    os.makedirs(FLAGS.log)
-    os.makedirs(os.path.join(FLAGS.log, "sequences"))
+    # if os.path.isdir(FLAGS.log):
+    #   shutil.rmtree(FLAGS.log)
+    # os.makedirs(FLAGS.log)
+    os.makedirs(os.path.join(FLAGS.log, "sequences"), exist_ok=True)
 
     for seq in DATA["split"]["sample"]:
       seq = '{0:02d}'.format(int(seq))
       print("sample_list",seq)
-      os.makedirs(os.path.join(FLAGS.log,"sequences", str(seq)))
-      os.makedirs(os.path.join(FLAGS.log,"sequences", str(seq), "predictions"))
+      os.makedirs(os.path.join(FLAGS.log,"sequences", str(seq)), exist_ok=True)
+      os.makedirs(os.path.join(FLAGS.log,"sequences", str(seq), "predictions"), exist_ok=True)
 
   except Exception as e:
     print(e)

@@ -145,16 +145,16 @@ class User():
         path = os.path.join(self.logdir, "sequences",
                             path_seq, "predictions", path_name)
         pred_np.tofile(path)
-        depth = (cv2.normalize(proj_in[0][0].cpu().numpy(), None, alpha=0, beta=1,
-                           norm_type=cv2.NORM_MINMAX,
-                           dtype=cv2.CV_32F) * 255.0).astype(np.uint8)
-        print(depth.shape, proj_mask.shape,proj_argmax.shape)
-        out_img = cv2.applyColorMap(
-            depth, Trainer.get_mpl_colormap('viridis')) * proj_mask[0].cpu().numpy()[..., None]
-         # make label prediction
-        pred_color = self.parser.to_color((proj_argmax.cpu().numpy() * proj_mask[0].cpu().numpy()).astype(np.int32))
-        out_img = np.concatenate([out_img, pred_color], axis=0)
-        print(path)
-        cv2.imwrite(path[:-6]+'.png',out_img)
+        # depth = (cv2.normalize(proj_in[0][0].cpu().numpy(), None, alpha=0, beta=1,
+        #                    norm_type=cv2.NORM_MINMAX,
+        #                    dtype=cv2.CV_32F) * 255.0).astype(np.uint8)
+        # print(depth.shape, proj_mask.shape,proj_argmax.shape)
+        # out_img = cv2.applyColorMap(
+        #     depth, Trainer.get_mpl_colormap('viridis')) * proj_mask[0].cpu().numpy()[..., None]
+        #  # make label prediction
+        # pred_color = self.parser.to_color((proj_argmax.cpu().numpy() * proj_mask[0].cpu().numpy()).astype(np.int32))
+        # out_img = np.concatenate([out_img, pred_color], axis=0)
+        # print(path)
+        # cv2.imwrite(path[:-6]+'.png',out_img)
 
 
