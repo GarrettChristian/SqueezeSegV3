@@ -4,6 +4,8 @@
 # New additions
 SSGV3-53/
 *.zip
+*.label
+*.png
 
 
 
