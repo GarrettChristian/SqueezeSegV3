@@ -1,3 +1,38 @@
+# SqueezeSegV3
+
+Fork for Semantic LiDAR Fuzzer
+
+---
+
+## Setup
+- Download model from https://drive.google.com/file/d/1MDDm-0vm_IHEM5Ac88HmPCgO0Qvamnie/view?usp=sharing
+- Extract to root of SqueezeSegV3, should look like
+  - sutDir/SqueezeSegV3/SSGV3-53/tb
+  - sutDir/SqueezeSegV3/SSGV3-53/backbone
+  - sutDir/SqueezeSegV3/SSGV3-53/backbone_train
+  - sutDir/SqueezeSegV3/SSGV3-53/segmentation_*
+  - sutDir/SqueezeSegV3/SSGV3-53/arch_cfg.yaml
+  - sutDir/SqueezeSegV3/pretrained/data_cfg.yaml
+
+## Build Docker Image
+
+```
+cd to SqueezeSegV3 directory
+docker build . -t squeezesegv3_image
+```
+
+
+## Run Docker Image
+- See Sample Run in runSq3saDocker.sh or in the docker runner of semLidarFuzzer
+
+
+## Remove Docker Container
+```
+docker container stop squeezesegv3 && docker container rm squeezesegv3
+```
+
+---
+
 # SqueezeSegV3: Spatially-Adaptive Convolution for Efficient Point-Cloud Segmentation. (ECCV2020)
 By Chenfeng Xu, Bichen Wu, Zining Wang, Wei Zhan, Peter Vajda, Kurt Keutzer, and Masayoshi Tomizuka.
 
